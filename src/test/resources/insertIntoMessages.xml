@@ -1,0 +1,11 @@
+<command name="InsertIntoMessages" type="SQL.UPDATE">
+	<parameters>
+		<parameter name="message_id" />
+		<parameter name="text" />
+	</parameters>
+	
+	<script>
+		insert into messages(message_id,text) 
+		values($message_id,'$text')
+	</script>
+</command>

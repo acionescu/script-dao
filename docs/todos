@@ -1,0 +1,5 @@
+-make the XmlLoader to use UrlLoader not the other way around
+-create property loader
+-create database loader ( also create database schema )
+-create interface ( -view update the commands)
+-find a way to centralize all the command managers 

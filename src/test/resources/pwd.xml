@@ -1,0 +1,8 @@
+<command name="pwd">
+	<parameters>
+	</parameters>
+	
+	<script>
+		pwd
+	</script>
+</command>

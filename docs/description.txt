@@ -1,0 +1,3 @@
+behaviour:
+
+- give location -> obtain CommandManager

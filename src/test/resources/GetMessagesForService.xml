@@ -1,0 +1,16 @@
+<command name="GetMessagesForService" type="SQL.QUERY">
+	<parameters>
+		<parameter name="service" />
+		<parameter name="exit_point" />
+		<parameter name="input_channel" />
+	</parameters>
+	
+	<script>
+		select m.message_id, m.text, sm.order_idx from messages m , services_messages sm
+		where sm.message_id = m.message_id
+		and sm.service = '$service' 
+		and sm.exit_point= '$exit_point'
+		and sm.input_channel= '$input_channel'
+		and current_timestamp > sm.start_date and ( end_date is null or current_timestamp &lt; end_date) 
+	</script>
+</command>

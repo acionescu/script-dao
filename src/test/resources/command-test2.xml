@@ -1,0 +1,10 @@
+<command name="CommandTest2">
+	<parameters>
+		<parameter name="prm1" />
+		<parameter name="prm2" />
+	</parameters>
+	
+	<script>
+		Hello this is prm1 = $prm1 and this is prm2 = $prm2.
+	</script>
+</command>

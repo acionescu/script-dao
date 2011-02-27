@@ -1,0 +1,29 @@
+<command name="InsertIntoServicesMessages" type="SQL.UPDATE">
+	<parameters>
+		<parameter name="service" />
+		<parameter name="exit_point" />
+		<parameter name="input_channel"></parameter>
+		<parameter name="output_channel"></parameter>
+		<parameter name="message_id"></parameter>
+		<parameter name="order_idx"></parameter>
+		<parameter name="start_date"></parameter>
+		<parameter name="end_date"></parameter>
+	</parameters>
+	
+	<script>
+		insert into services_messages
+		(
+		service,exit_point,input_channel,output_channel,message_id,order_idx,start_date
+			#if( $end_date )
+				,end_date
+			#end	
+		)
+		values
+		(
+		'$service','$exit_point','$input_channel','$output_channel',$message_id,$order_idx,'$start_date'
+			#if( $end_date )
+				,'$end_date'
+			#end	
+		)
+	</script>
+</command>		

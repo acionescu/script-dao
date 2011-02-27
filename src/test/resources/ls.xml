@@ -1,0 +1,10 @@
+<command name="ls">
+	<parameters>
+		<parameter name="prm1" />
+		<parameter name="prm2" />
+	</parameters>
+	
+	<script>
+		ls $prm1 $prm2
+	</script>
+</command>
