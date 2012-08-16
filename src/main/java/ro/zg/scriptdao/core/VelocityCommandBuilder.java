@@ -20,15 +20,20 @@ import java.io.StringWriter;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.context.Context;
 import org.apache.velocity.exception.MethodInvocationException;
 import org.apache.velocity.exception.ParseErrorException;
 import org.apache.velocity.exception.ResourceNotFoundException;
+import org.apache.velocity.tools.Scope;
+import org.apache.velocity.tools.ToolManager;
+import org.apache.velocity.tools.config.EasyFactoryConfiguration;
+import org.apache.velocity.tools.generic.DisplayTool;
 
 public class VelocityCommandBuilder implements CommandBuilder {
 	private static Logger logger = Logger.getLogger(VelocityCommandBuilder.class.getName());
 	private static VelocityEngine velocityEngine;
+	private static  ToolManager velocityToolManager;
 	private String builderIdentifier = "VelocityCommandBuilder";
 	static{
 //		Properties p = new Properties();
@@ -40,6 +45,13 @@ public class VelocityCommandBuilder implements CommandBuilder {
 //			e.printStackTrace();
 //		}
 		velocityEngine = new VelocityEngine();
+		
+		EasyFactoryConfiguration toolboxConfig = new EasyFactoryConfiguration();
+		toolboxConfig.toolbox(Scope.APPLICATION).tool(DisplayTool.class);
+		
+		velocityToolManager = new ToolManager(); 
+		velocityToolManager.configure(toolboxConfig);
+		
 		try {
 			velocityEngine.init();
 		} catch (Exception e) {
@@ -50,7 +62,7 @@ public class VelocityCommandBuilder implements CommandBuilder {
 
 	public String buildCommand(String script, Map arguments) {
 		StringWriter sw = new StringWriter();		
-		VelocityContext vc = new VelocityContext();
+		Context vc = velocityToolManager.createContext();
 		for(Object key : arguments.keySet()){
 			vc.put(key.toString(),arguments.get(key));
 		}
