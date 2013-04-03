@@ -1,1 +1,3 @@
 *.class
+target
+velocity.log
