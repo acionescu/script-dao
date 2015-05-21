@@ -155,20 +155,9 @@ public class DefaultCommandManager<R> implements CommandManager<R> {
     public ScriptDaoCommand getCommand(String commandName, Map<String, Object> arguments) throws Exception {
 	CommandTemplate template = commandTemplates.get(commandName);
 	String script = template.getScript();
-	/* sanitize string arguments */
-	sanitizeStringArguments(arguments);
 	String mergedScript = commandBuilder.buildCommand(script, arguments);
 	ScriptDaoCommand command = new ScriptDaoCommand(commandName, mergedScript, template.getType(), arguments);
 	return command;
-    }
-
-    private void sanitizeStringArguments(Map<String, Object> arguments) {
-	for (Map.Entry<String, Object> e : arguments.entrySet()) {
-	    if (e.getValue() instanceof String) {
-		String value = (String) e.getValue();
-		e.setValue(SqlUtil.sanitizeStringValues(value));
-	    }
-	}
     }
 
     public Object executeAsTransaction(ScriptDaoCommand[] commands) throws Exception {

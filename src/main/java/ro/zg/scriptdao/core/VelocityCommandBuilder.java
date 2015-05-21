@@ -28,6 +28,7 @@ import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.tools.Scope;
 import org.apache.velocity.tools.ToolManager;
 import org.apache.velocity.tools.config.EasyFactoryConfiguration;
+import org.apache.velocity.tools.generic.DateTool;
 import org.apache.velocity.tools.generic.DisplayTool;
 
 public class VelocityCommandBuilder implements CommandBuilder {
@@ -48,12 +49,14 @@ public class VelocityCommandBuilder implements CommandBuilder {
 		
 		EasyFactoryConfiguration toolboxConfig = new EasyFactoryConfiguration();
 		toolboxConfig.toolbox(Scope.APPLICATION).tool(DisplayTool.class);
+		toolboxConfig.toolbox(Scope.APPLICATION).tool(DateTool.class);
 		
 		velocityToolManager = new ToolManager(); 
 		velocityToolManager.configure(toolboxConfig);
 		
 		try {
 			velocityEngine.init();
+			logger.info("Velocity Engine for Script Dao   successfully initialized");
 		} catch (Exception e) {
 			logger.error("Error initializing the velocity engine",e);
 		}

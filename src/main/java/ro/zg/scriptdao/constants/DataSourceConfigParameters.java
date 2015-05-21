@@ -16,21 +16,21 @@
 package ro.zg.scriptdao.constants;
 
 public class DataSourceConfigParameters {
-    public static final String USERNAME="USERNAME";
-    public static final String PASSWORD="PASSWORD";
-    public static final String HOST="HOST";
-    public static final String PORT="PORT";
-    public static final String DRIVER_CLASS="DRIVER_CLASS";
-    public static final String SCHEMA_NAME="SCHEMA_NAME";
-    public static final String DATABASE_TYPE="DATABASE_TYPE";
+    public static final String USERNAME = "USERNAME";
+    public static final String PASSWORD = "PASSWORD";
+    public static final String HOST = "HOST";
+    public static final String PORT = "PORT";
+    public static final String DRIVER_CLASS = "DRIVER_CLASS";
+    public static final String SCHEMA_NAME = "SCHEMA_NAME";
+    public static final String DATABASE_TYPE = "DATABASE_TYPE";
     public static final String DATABASE_URL_NAME = "DATABASE_URL_NAME";
-    public static final String URL_SEPARATOR="URL_SEPARATOR";
-    public static final String DATA_ACCESS_COMPONENT_PARAMS="DATA_ACCESS_COMPONENT_PARAMS";
-    public static final String COMMAND_CONTENT="COMMAND_CONTENT";
-    
-    //HTTP
+    public static final String URL_SEPARATOR = "URL_SEPARATOR";
+    public static final String DATA_ACCESS_COMPONENT_PARAMS = "DATA_ACCESS_COMPONENT_PARAMS";
+    public static final String COMMAND_CONTENT = "COMMAND_CONTENT";
+
+    // HTTP
     public static final String USER_AGENT = "USER_AGENT";
     public static final String MAX_TOTAL_CONNECTIONS = "MAX_TOTAL_CONNECTIONS";
     public static final String CONNECTION_TIMEOUT = "CONNECTION_TIMEOUT";
-    
+
 }
