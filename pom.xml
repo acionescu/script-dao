@@ -35,12 +35,16 @@
       <version>1.6.2</version>
       <scope>compile</scope>
     </dependency>
-    <dependency>
-      <groupId>commons-dbcp</groupId>
-      <artifactId>commons-dbcp</artifactId>
-      <version>1.2.2</version>
-      <scope>compile</scope>
-    </dependency>
+          <dependency>
+         <groupId>org.apache.commons</groupId>
+         <artifactId>commons-dbcp2</artifactId>
+         <version>2.1</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.commons</groupId>
+         <artifactId>commons-pool2</artifactId>
+         <version>2.4.2</version>
+      </dependency>
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
@@ -52,11 +56,11 @@
     	<artifactId>commons-logging</artifactId>
     	<version>1.1.1</version>
     </dependency>
-    <dependency>
-    	<groupId>ro.zg</groupId>
-    	<artifactId>commons</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-    </dependency>
+   <dependency>
+         <groupId>com.github.acionescu</groupId>
+         <artifactId>commons</artifactId>
+         <version>0.0.4-SNAPSHOT</version>
+      </dependency>
     <dependency>
     	<groupId>org.apache.httpcomponents</groupId>
     	<artifactId>httpclient</artifactId>

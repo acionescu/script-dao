@@ -4,6 +4,8 @@ import java.util.Map;
 
 import ro.zg.db.sql.SqlUtil;
 import ro.zg.scriptdao.core.VelocityCommandBuilder;
+import ro.zg.util.data.GenericNameValueContext;
+import ro.zg.util.data.NameValue;
 
 public class SqlCommandBuilder extends VelocityCommandBuilder{
 
@@ -20,9 +22,24 @@ public class SqlCommandBuilder extends VelocityCommandBuilder{
     
     private void sanitizeStringArguments(Map<String, Object> arguments) {
 	for (Map.Entry<String, Object> e : arguments.entrySet()) {
-	    if (e.getValue() instanceof String) {
-		String value = (String) e.getValue();
-		e.setValue(SqlUtil.sanitizeStringValues(value));
+	    Object rawValue = e.getValue();
+	    if (rawValue instanceof String) {
+		e.setValue(SqlUtil.sanitizeStringValues((String) rawValue));
+	    }
+	    else if(rawValue instanceof GenericNameValueContext) {
+		sanitizeStringArgumens((GenericNameValueContext)rawValue);
+	    }
+	}
+    }
+    
+    private void sanitizeStringArgumens(GenericNameValueContext nvc) {
+	for( Map.Entry<String, NameValue<Object>> e : nvc.getParameters().entrySet() ) {
+	    Object rawValue = e.getValue().getValue();
+	    if( rawValue instanceof String ) {
+		e.getValue().setValue(SqlUtil.sanitizeStringValues((String)rawValue));
+	    }
+	    else if(rawValue instanceof GenericNameValueContext) {
+		sanitizeStringArgumens((GenericNameValueContext)rawValue);
 	    }
 	}
     }

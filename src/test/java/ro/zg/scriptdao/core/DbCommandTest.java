@@ -20,7 +20,7 @@ import java.util.Map;
 
 import junit.framework.TestCase;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 
 import ro.zg.scriptdao.core.db.DbCommandExecutor;
 
