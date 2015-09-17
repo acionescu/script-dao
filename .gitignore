@@ -1,3 +1,6 @@
 *.class
 target
-velocity.log
+*.log
+.project
+.settings
+.classpath
