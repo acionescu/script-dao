@@ -33,9 +33,9 @@ public class XmlCommandParserTest extends TestCase {
 		XmlCommandParser parser = new XmlCommandParser();
 		InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("command-test.xml");
 		Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(in);
-		NodeList nodes = document.getChildNodes();
+//		NodeList nodes = document.getChildNodes();
 		
-		CommandTemplate template = parser.parseCommand(nodes.item(0));
+		CommandTemplate template = parser.parseCommand(document.getLastChild());
 		assertNotNull(template);
 		assertNotNull(template.getName());
 		assertNotNull(template.getParameterNames());

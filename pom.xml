@@ -23,7 +23,7 @@
    <groupId>net.segoia</groupId>
    <artifactId>script-dao</artifactId>
    <name>script-dao</name>
-   <version>1.0</version>
+   <version>1.0.0-SNAPSHOT</version>
    <url>https://github.com/acionescu/script-dao</url>
    <description>Library to support dynamic command generation based on Apache Velocity templates</description>
    <licenses>

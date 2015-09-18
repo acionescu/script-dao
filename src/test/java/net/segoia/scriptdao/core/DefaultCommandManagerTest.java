@@ -31,6 +31,7 @@ public class DefaultCommandManagerTest extends TestCase{
 	
 	public void testGetCommandArguments() throws Exception{
 		DefaultCommandManager commandManager = new DefaultCommandManager("TestCommandManager");
+		commandManager.setResourcesLoader(Thread.currentThread().getContextClassLoader());
 				
 		commandManager.setCommandLoader(new ClasspathCommandLoader(""));
 		commandManager.setCommandExecutor(new SoCommandExecutor());
