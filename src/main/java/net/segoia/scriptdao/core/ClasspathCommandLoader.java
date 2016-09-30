@@ -18,6 +18,8 @@ package net.segoia.scriptdao.core;
 
 import java.net.URL;
 
+import org.apache.velocity.exception.ResourceNotFoundException;
+
 public class ClasspathCommandLoader implements CommandLoader {
     private String path;
 
@@ -51,7 +53,11 @@ public class ClasspathCommandLoader implements CommandLoader {
 
     public CommandTemplate[] loadCommands(ClassLoader classLoader) throws Exception {
 	URL url = classLoader.getResource(path);
-	return new UrlCommandLoader(url).loadCommands(classLoader);
+	try {
+	    return new UrlCommandLoader(url).loadCommands(classLoader);
+	} catch (Exception e) {
+	    throw new ResourceNotFoundException("No resource found for path " + path, e);
+	}
     }
 
 }
